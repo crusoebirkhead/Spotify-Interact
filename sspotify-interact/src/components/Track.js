@@ -9,6 +9,8 @@ export class Track extends React.Component {
   }
 
   renderAction() {
+
+    //takes isRemoval prop and generates + or - button to remove or add track from list
     if (this.props.isRemoval) {
       return <button onClick = {this.removeTrack} className = "Track-action">-</button>
     } else {
@@ -21,11 +23,12 @@ export class Track extends React.Component {
   }
 
   removeTrack = () =>{
-    this.propsonRemove && this.props.onRemove(this.props.track);
-    console.log(this.props)
+    this.props.onRemove && this.props.onRemove(this.props.track);
   }
 
 render() {
+
+
 return(
    
 <div className="Track">

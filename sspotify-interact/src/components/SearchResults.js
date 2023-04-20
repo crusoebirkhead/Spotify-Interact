@@ -10,7 +10,11 @@ return(
    
 <div className="SearchResults">
   <h2>Results</h2>
-  <Tracklist isRemoval = {false} onRemove = {this.props.onRemove} onAdd = {this.props.onAdd} tracks = {this.props.searchResults} />
+  <Tracklist 
+    isRemoval = {false} 
+    onRemove = {this.props.onRemove} 
+    onAdd = {this.props.onAdd} 
+    tracks = {this.props.searchResults} />
 </div>
 
 )

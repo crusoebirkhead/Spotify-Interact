@@ -8,7 +8,12 @@ return(
 <div className="Tracklist">
   {
     this.props.tracks && this.props.tracks.map(track => {
-      return <Track isRemoval = {this.props.isRemoval} onRemove = {this.props.onRemove} onAdd = {this.props.onAdd} track ={track} key={track.id}/>
+      return <Track 
+              isRemoval = {this.props.isRemoval} 
+              onRemove = {this.props.onRemove} 
+              onAdd = {this.props.onAdd} 
+              track ={track} 
+              key={track.id}/>
     })
   }
 </div>
@@ -16,3 +21,4 @@ return(
 )
 }
 }
+
