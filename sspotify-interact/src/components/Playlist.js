@@ -4,17 +4,12 @@ import {Tracklist} from './Tracklist'
 export class Playlist extends React.Component {
 
   constructor(props){
-    super(props);
-    this.updatePlaylistName = this.updatePlaylistName.bind(this)
-    this.state = {
-      inputValue : ''
-    }
+  super(props);
+   this.handleChange = this.handleChange.bind(this);  
   }
 
-  //updates the state of playlist name on each key stroke
-  updatePlaylistName = (event) => {
-    this.setState({ inputValue: event.target.value });
-    console.log(this.state.inputValue)
+  handleChange = (event) =>{
+    this.props.onNameChange(event.target.value)
   }
 
 
@@ -25,7 +20,7 @@ return(
 <div className="Playlist">
   <input 
     className = "name" 
-    onChange = {this.updatePlaylistName} 
+    onChange = {this.handleChange} 
     placeholder={"New Playlist"}
     />
 

@@ -16,9 +16,10 @@ class App extends React.Component {
     this.removeTrack = this.removeTrack.bind(this)
     this.savePlaylist = this.savePlaylist.bind(this)
     this.search = this.search.bind(this)
+    this.updatePlaylistName = this.updatePlaylistName.bind(this)
     this.state ={ 
       searchResults : [],
-      playlistName: 'JOEMAMA',
+      playlistName: '',
       playlistTracks: []
     }
   }; 
@@ -40,7 +41,13 @@ class App extends React.Component {
     this.setState({playlistTracks: tracks})
   }
 
-  //creates array of URIs for Spotify to consume when pushed onSave
+  //updates playlistName state with user input
+  updatePlaylistName = (name) => {
+    this.setState({playlistName: name });
+  }
+
+
+  
   savePlaylist = () => {
     let trackURIs = this.state.playlistTracks.map(track => track.uri)
     Spotify.savePlaylist(this.state.playlistName, trackURIs).then(() => {
@@ -79,6 +86,7 @@ class App extends React.Component {
          <Playlist 
           onSave = {this.savePlaylist} 
           onRemove = {this.removeTrack} 
+          onNameChange = {this.updatePlaylistName}
           playlistName = {this.state.playlistName} 
           playlistTracks = {this.state.playlistTracks}/>
           
